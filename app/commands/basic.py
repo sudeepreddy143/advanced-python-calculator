@@ -1,35 +1,27 @@
-from app.commands.base import Command
+from .base import BaseCommand
 
-class AddCommand(Command):
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
+class AddCommand(BaseCommand):
+    name = "add"
+    
+    def execute(self, x, y):
+        return x + y
 
-    def execute(self):
-        return self.a + self.b
+class SubtractCommand(BaseCommand):
+    name = "sub"
+    
+    def execute(self, x, y):
+        return x - y
 
-class SubtractCommand(Command):
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
+class MultiplyCommand(BaseCommand):
+    name = "mul"
+    
+    def execute(self, x, y):
+        return x * y
 
-    def execute(self):
-        return self.a - self.b
-
-class MultiplyCommand(Command):
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-
-    def execute(self):
-        return self.a * self.b
-
-class DivideCommand(Command):
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-
-    def execute(self):
-        if self.b == 0:
-            return "Error: Division by zero"
-        return self.a / self.b
+class DivideCommand(BaseCommand):
+    name = "div"
+    
+    def execute(self, x, y):
+        if y == 0:
+            raise ValueError("Cannot divide by zero")
+        return x / y
