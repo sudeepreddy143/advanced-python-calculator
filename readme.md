@@ -20,20 +20,18 @@ This project presents an **Advanced Python Calculator** featuring:
 
 ## Table of Contents
 
-1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Available Commands](#available-commands)
-4. [Calculation History Management](#calculation-history-management)
-5. [Logging Configuration](#logging-configuration)
-6. [Design Patterns Implemented](#design-patterns-implemented)
-7. [Testing](#testing)
-8. [Continuous Integration](#continuous-integration)
-9. [Docker Deployment](#docker-deployment)
-10. [Environment Variables](#environment-variables)
-11. [Exception Handling](#exception-handling)
-12. [Contributing](#contributing)
-13. [License](#license)
-14. [Project Submission](#project-submission)
+1. [Installation]
+2. [Usage]
+3. [Available Commands]
+4. [Calculation History Management]
+5. [Logging Configuration]
+6. [Design Patterns Implemented]
+7. [Testing]
+8. [Continuous Integration]
+9. [Docker Deployment]
+10. [Environment Variables]
+11. [Exception Handling]
+
 
 ## 🚀 Installation
 
@@ -166,7 +164,7 @@ Structured logging is configured for monitoring application behavior.
 
 Devops (containers)
 
-📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/docker-compose.yaml)
+📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/docker-compose.yml)
 
 ##plugins
 
