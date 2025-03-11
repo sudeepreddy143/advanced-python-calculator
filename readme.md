@@ -1,4 +1,4 @@
-# 🧮 Advanced Python Calculator
+# Advanced Python Calculator #
 
 **Software Engineering Graduate Course Midterm Project**
 
@@ -140,15 +140,16 @@ except ZeroDivisionError:
 - **Factory Method**
 - **Facade Pattern**
 
-📌 [🔗 Link to Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/tree/main/app/design_patterns)
+📌 [🔗 Link to Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/tree/main/app/)
 
 ---
 
 ## 🌍 Environment Variables
 
 The project uses environment variables for configuration. 
+we should create one for INFO | WARNING | ERROR
 
-📌 [🔗 Link to Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/app/config.py)
+📌 [🔗 Link to Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/main/app/.env)
 
 ---
 
@@ -156,29 +157,15 @@ The project uses environment variables for configuration.
 
 Structured logging is configured for monitoring application behavior.
 
-📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/app/logger.py)
+📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/main/app/logger_config.py)
+
 
 ---
 
-## 🛠 Project Submission
+## Video 
 
-1. **Create a NEW repository** from scratch and transfer any relevant work. Ensure a clear history of commits.
-2. **Submit via GitHub Repository Link**, including documentation and commit history.
-3. **Design Patterns Documentation**: Describe and provide links to their implementations.
-4. **Environment Variables**: Explain usage and provide a link to the implementation.
-5. **Logging Implementation**: Describe and link to its configuration.
-6. **Exception Handling**: Explain LBYL and EAFP with linked examples.
-7. **Create a 3-5 Minute Video** demonstrating the calculator’s key features.
-8. **Submit the Repository Link to Canvas.**
-9. **Keep the Repository Private** until submission. Make it public after the deadline.
-10. **GitHub Actions Required**: All tests must pass before submission.
+This project is Analysis.
 
 ---
 
-## Video Link
-
-This project is licensed under the MIT License.
-
----
-
-📌 [🔗 Video](https://github.com/sudeepreddy143/advanced-python-calculator)
+📌 [🔗 Drive Link](https://github.com/sudeepreddy143/advanced-python-calculator)
