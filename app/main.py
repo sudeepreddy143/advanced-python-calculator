@@ -1,11 +1,10 @@
-import logging
-from app.repl import REPL
-from app.logger import setup_logging
-from app.database import Database
+"""Main entry point for the Advanced Python Calculator."""
+from app.repl import repl
+from app.logging_config import logger
 
 if __name__ == "__main__":
-    setup_logging()
-    logging.info("Starting the Advanced Python Calculator...")
-    database = Database()
-    repl = REPL(database)
-    repl.run()
+    logger.info("Starting the Advanced Python Calculator...")
+    try:
+        repl()
+    except Exception as e:
+        logger.error("Application encountered an error: %s", e)

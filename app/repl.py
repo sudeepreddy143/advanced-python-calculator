@@ -1,7 +1,13 @@
+"""
+REPL for the Advanced Python Calculator.
+Supports basic operations, history management, and plugins.
+"""
 import sys
 from app.commands.basic import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
 from app.history import HistoryManager
 from app.logging_config import logger
+from app.invoker import CommandInvoker
+from app.plugin_loader import load_plugins
 
 COMMANDS = {
     "add": AddCommand(),
@@ -12,6 +18,13 @@ COMMANDS = {
 
 HISTORY_COMMANDS = ["history", "clear_history", "delete_last"]
 
+# Ensure plugins load correctly
+invoker = CommandInvoker()
+load_plugins(invoker)
+
+# ✅ Fix: Properly retrieve commands from `_commands` dictionary
+COMMANDS.update(invoker._commands)  
+
 
 def repl():
     """Runs the calculator REPL."""
@@ -21,47 +34,55 @@ def repl():
         try:
             command_line = input(">>> ").strip().lower()
             if not command_line:
-                continue  # Ignore empty input
+                continue
 
             if command_line == "exit":
-                break
+                sys.exit(0)
 
-            elif command_line == "menu":
+            if command_line == "menu":
                 print("Available commands:", ", ".join(COMMANDS.keys()))
                 print("History commands:", ", ".join(HISTORY_COMMANDS))
+                continue
 
-            elif command_line == "history":
-                print(HistoryManager.load())  # ✅ Show history
+            if command_line in HISTORY_COMMANDS:
+                handle_history_command(command_line)
+                continue
 
-            elif command_line == "clear_history":
-                HistoryManager.clear()  # ✅ Clear history
-                print("History cleared.")
+            parts = command_line.split()
+            command = parts[0]
 
-            elif command_line == "delete_last":
-                HistoryManager.delete_last()  # ✅ Delete last history entry
-                print("Last history entry deleted.")
+            if command in COMMANDS:
+                try:
+                    args = list(map(float, parts[1:]))
+                    result = COMMANDS[command].execute(*args)
+                    print("Result:", result)
+                    HistoryManager.save(command, str(args), result)
+
+                except (ValueError, TypeError):
+                    print("Invalid number of arguments.")
+                    logger.error("Invalid number of arguments.")
 
             else:
-                parts = command_line.split()
+                print("Unknown command. Type 'menu' for options.")
 
-                # Check if command is a valid math operation with two numbers
-                if len(parts) == 3 and parts[0] in COMMANDS:
-                    try:
-                        x, y = float(parts[1]), float(parts[2])
-                        result = COMMANDS[parts[0]].execute(x, y)
-                        print("Result:", result)
-
-                        # ✅ Save result to history
-                        HistoryManager.save(parts[0], f"({x}, {y})", result)
-
-                    except ValueError:
-                        print("Invalid input. Please enter valid numbers.")
-                else:
-                    print("Unknown command. Type 'menu' for options.")
-
+        except KeyboardInterrupt:
+            print("\nExiting REPL.")
+            sys.exit(0)
         except Exception as e:
-            logger.error(f"Error: {e}")
+            logger.error("Error: %s", e)
             print(f"Error: {e}")
+
+
+def handle_history_command(command):
+    """Handle history-related commands."""
+    if command == "history":
+        print(HistoryManager.load())
+    elif command == "clear_history":
+        HistoryManager.clear()
+        print("History cleared.")
+    elif command == "delete_last":
+        HistoryManager.delete_last()
+        print("Last history entry deleted.")
 
 
 if __name__ == "__main__":

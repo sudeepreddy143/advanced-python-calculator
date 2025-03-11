@@ -1,6 +1,11 @@
-import multiprocessing
+"""
+Manages execution of commands in the calculator.
+"""
+import logging
 from typing import Dict, Type
-from app.commands.base import Command
+from app.commands.base import BaseCommand
+
+logger = logging.getLogger("app")
 
 
 class CommandInvoker:
@@ -8,33 +13,25 @@ class CommandInvoker:
 
     def __init__(self):
         """Initialize an empty command registry."""
-        self._commands: Dict[str, Type[Command]] = {}
+        self._commands: Dict[str, Type[BaseCommand]] = {}
 
-    def register_command(self, name: str, command: Type[Command]):
+    def register_command(self, name: str, command: Type[BaseCommand]):
         """Register a new command."""
         self._commands[name] = command
 
     def execute_command(self, name: str, *args):
         """Execute a registered command synchronously."""
-        command_class = self._commands.get(name)
-        if not command_class:
+        if name not in self._commands:
+            logger.warning("Unknown command: %s", name)
             print("Unknown command. Type 'menu' to see available commands.")
-            return
+            return None
 
-        command_instance = command_class()
-        result = command_instance.execute(*args)
+        result = self._commands[name].execute(*args)
         print(f"Result: {result}")
 
-    def execute_command_async(self, name: str, *args):
-        """Execute a registered command asynchronously using multiprocessing."""
-        if name not in self._commands:
-            print("Unknown command. Type 'menu' to see available commands.")
-            return
-
-        process = multiprocessing.Process(target=self.execute_command, args=(name, *args))
-        process.start()
-        process.join()
+        logger.info("Executed: %s(%s) -> %s", name, ", ".join(map(str, args)), result)
+        return result
 
     def get_available_commands(self):
-        """Return a list of registered command names."""
-        return list(self._commands.keys())
+        """Return a dictionary of registered command names and their instances."""
+        return self._commands  # ✅ Fix: Return actual command objects

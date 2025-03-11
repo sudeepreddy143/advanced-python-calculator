@@ -1,7 +1,8 @@
 from app.commands.base import BaseCommand
 
+COMMAND_NAME = "power"
+
 class PowerCommand(BaseCommand):
-    name = "power"
-    
+    """Exponentiation Command."""
     def execute(self, x, y):
         return x ** y

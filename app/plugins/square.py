@@ -1,7 +1,8 @@
 from app.commands.base import BaseCommand
 
+COMMAND_NAME = "square"
+
 class SquareCommand(BaseCommand):
-    name = "square"
-    
+    """Square Command (only takes one argument)."""
     def execute(self, x):
         return x * x
