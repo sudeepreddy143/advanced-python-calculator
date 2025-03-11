@@ -140,7 +140,8 @@ except ZeroDivisionError:
 - **Factory Method**
 - **Facade Pattern**
 
-📌 [🔗 Link to Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/tree/main/app/)
+📌 [🔗 Link to Implementation](📌 [🔗 Link to Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/tree/main/app/)
+)
 
 ---
 
@@ -149,7 +150,7 @@ except ZeroDivisionError:
 The project uses environment variables for configuration. 
 we should create one for INFO | WARNING | ERROR
 
-📌 [🔗 Link to Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/main/app/.env)
+📌 [🔗 Link to Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/app/.env)
 
 ---
 
@@ -157,14 +158,24 @@ we should create one for INFO | WARNING | ERROR
 
 Structured logging is configured for monitoring application behavior.
 
-📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/main/app/logger_config.py)
+📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/app/logging_config.py)
 
 
 ---
+## DockerFile | compose file
+
+Devops (containers)
+
+📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/docker-compose.yaml)
+
+##plugins
+
+📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/app/plugins)
+
 
 ## Video 
 
-This project is Analysis.
+This project Analysis.
 
 ---
 
