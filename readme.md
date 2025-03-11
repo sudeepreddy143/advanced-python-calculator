@@ -166,7 +166,9 @@ Devops (containers)
 
 📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/docker-compose.yml)
 
-##plugins
+
+
+## Plugins
 
 📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/app/plugins)
 
