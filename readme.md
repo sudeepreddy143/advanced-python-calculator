@@ -173,10 +173,13 @@ Devops (containers)
 📌 [🔗 Link to Logging Implementation](https://github.com/sudeepreddy143/advanced-python-calculator/blob/main/app/plugins)
 
 
-## Video 
+## Video presentation
 
 This project Analysis.
 
----
+[Watch the video](https://drive.google.com/file/d/1qPHQGcHz-w0669WbAk3wtZFNvvwwlv-u/view?usp=sharing)
 
-📌 [🔗 Drive Link](https://github.com/sudeepreddy143/advanced-python-calculator)
+
+
+
+
